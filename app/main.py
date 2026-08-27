@@ -27,7 +27,7 @@ from app.difficulty import get_next_difficulty
 from app.question_generator import generate_question
 from fastapi.middleware.cors import CORSMiddleware
 from app.input_validator import validate_interview_input
-
+import os
 
 
 
@@ -60,9 +60,19 @@ app = FastAPI(
     lifespan=lifespan
 )
 
+FRONTEND_ORIGIN = os.getenv("FRONTEND_ORIGIN")
+
+allowed_origins = [
+    "http://localhost:5500",
+    "http://127.0.0.1:5500",
+]
+
+if FRONTEND_ORIGIN:
+    allowed_origins.append(FRONTEND_ORIGIN)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
