@@ -6,7 +6,7 @@ The application conducts a structured 5-question technical interview, dynamicall
 
 ## 🔗 Live Demo
 
-- 🌐 **Frontend:** [interview-evaluator-bdthjq51e-saikrishnas-projects-472cb827.vercel.app](https://interview-evaluator-bdthjq51e-saikrishnas-projects-472cb827.vercel.app/)
+- 🌐 **Frontend:** [interview-evaluator-bdthjq51e-saikrishnas-projects-472cb827.vercel.app](https://interview-evaluator-bdthjq51e-saikrishnas-projects-472cb827.vercel.app)
 - ⚡ **Backend API docs (Swagger):** [interview-evaluator-production-25d3.up.railway.app/docs](https://interview-evaluator-production-25d3.up.railway.app/docs)
 
 ---
