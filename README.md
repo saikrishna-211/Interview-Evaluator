@@ -4,10 +4,16 @@ An AI-powered technical interview platform built with **FastAPI**, **Groq LLMs**
 
 The application conducts a structured 5-question technical interview, dynamically adjusts question difficulty based on candidate performance, evaluates answers using an LLM, and generates a final performance report.
 
+## 🔗 Live Demo
+
+- 🌐 **Frontend:** [interview-evaluator-bdthjq51e-saikrishnas-projects-472cb827.vercel.app](https://interview-evaluator-bdthjq51e-saikrishnas-projects-472cb827.vercel.app/)
+- ⚡ **Backend API docs (Swagger):** [interview-evaluator-production-25d3.up.railway.app/docs](https://interview-evaluator-production-25d3.up.railway.app/docs)
+
 ---
 
 ## 📑 Table of Contents
 
+- [🔗 Live Demo](#-live-demo)
 - [✨ Features](#-features)
 - [🖼️ Screenshots](#️-screenshots)
 - [⚙️ How It Works](#️-how-it-works)
@@ -202,8 +208,8 @@ Average score = (score1 + score2 + score3) / 3
 - 📡 httpx
 
 **Deployment**
-- 🐳 Docker
-- ☁️ Cloud deployment
+- 🚂 Backend hosted on Railway
+- ▲ Frontend hosted on Vercel
 - ☁️ Supabase PostgreSQL
 
 ---
@@ -380,13 +386,13 @@ The project contains a comprehensive API test suite covering interview creation,
 ## 🔒 Security
 
 - 🔐 Sensitive configuration (Groq API keys, database credentials) is stored in `.env` and excluded from Git via `.gitignore`.
-- 🌐 For production deployment, CORS should be restricted to the actual deployed frontend domain rather than allowing every origin.
+- 🌐 In production, CORS on the Railway-hosted backend should be restricted to the deployed Vercel frontend origin rather than allowing every origin.
 
 ---
 
 ## 🐳 Docker
 
-The application is designed to be containerized for deployment. The Docker setup allows the FastAPI backend and its Python dependencies to run consistently across development and production environments.
+The application is designed to be containerized for deployment, keeping the FastAPI backend and its Python dependencies consistent across environments. The live backend is currently deployed on **Railway**.
 
 ---
 
