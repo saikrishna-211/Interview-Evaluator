@@ -618,7 +618,7 @@ def finalize_interview(
             sum(
                 item["score"]
                 for item in evaluated_answers
-            ) / answered_questions,
+            ) / MAX_QUESTIONS,
             2
         )
 
