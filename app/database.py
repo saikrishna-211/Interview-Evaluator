@@ -16,7 +16,11 @@ DBNAME = os.getenv("dbname")
 
 DATABASE_URL = f"postgresql+psycopg2://{USER}:{PASSWORD}@{HOST}:{PORT}/{DBNAME}?sslmode=require"
 
-engine = create_engine(DATABASE_URL)
+engine = create_engine(
+    DATABASE_URL,
+    pool_pre_ping=True,
+    pool_recycle=1800
+)
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 

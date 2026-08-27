@@ -6,23 +6,31 @@ import os
 from app.schemas import EvaluationCreate
 
 
-# Load .env explicitly
+# =========================================================
+# ENVIRONMENT
+# =========================================================
+
 env_path = Path(__file__).resolve().parent.parent / ".env"
 load_dotenv(dotenv_path=env_path)
 
-
-# Get API key
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
 if not GROQ_API_KEY:
     raise ValueError("GROQ_API_KEY not found in .env")
 
 
-# Create Groq client
+# =========================================================
+# GROQ CLIENT
+# =========================================================
+
 client = Groq(
     api_key=GROQ_API_KEY
 )
 
+
+# =========================================================
+# EVALUATE ANSWER
+# =========================================================
 
 def evaluate_answer(
     question: str,
@@ -32,7 +40,7 @@ def evaluate_answer(
     prompt = f"""
 You are an expert technical interviewer.
 
-Evaluate the candidate's answer.
+Evaluate the candidate's answer fairly and objectively.
 
 Question:
 {question}
@@ -40,18 +48,22 @@ Question:
 Candidate Answer:
 {answer}
 
-Evaluate based on:
+Evaluate using:
 
 1. Technical correctness
 2. Conceptual understanding
 3. Completeness
 4. Clarity
 
-Score the answer from 0 to 10.
+Important:
+- Give a score from 0 to 10.
+- Do not give a high score merely because the answer is long.
+- Do not penalize concise answers if they are technically correct.
+- Identify exactly what the candidate understood.
+- Identify exactly what is missing or incorrect.
+- Keep the feedback useful for determining the next interview question.
 
-Be fair and objective.
-
-Return the evaluation in this JSON format:
+Return ONLY valid JSON:
 
 {{
     "score": number,
@@ -78,4 +90,11 @@ Return the evaluation in this JSON format:
 
     content = response.choices[0].message.content
 
-    return EvaluationCreate.model_validate_json(content)
+    if not content:
+        raise ValueError(
+            "Groq returned an empty evaluation"
+        )
+
+    return EvaluationCreate.model_validate_json(
+        content
+    )

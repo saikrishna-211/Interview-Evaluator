@@ -6,6 +6,10 @@ from sqlalchemy.orm import Mapped, mapped_column
 from app.database import Base
 
 
+# =========================================================
+# INTERVIEW SESSION
+# =========================================================
+
 class InterviewSession(Base):
     __tablename__ = "interview_sessions"
 
@@ -43,6 +47,10 @@ class InterviewSession(Base):
     )
 
 
+# =========================================================
+# INTERVIEW QUESTION
+# =========================================================
+
 class InterviewQuestion(Base):
     __tablename__ = "interview_questions"
 
@@ -70,6 +78,10 @@ class InterviewQuestion(Base):
     )
 
 
+# =========================================================
+# CANDIDATE ANSWER
+# =========================================================
+
 class CandidateAnswer(Base):
     __tablename__ = "candidate_answers"
 
@@ -90,6 +102,10 @@ class CandidateAnswer(Base):
         default=lambda: datetime.now(timezone.utc)
     )
 
+
+# =========================================================
+# ANSWER EVALUATION
+# =========================================================
 
 class AnswerEvaluation(Base):
     __tablename__ = "answer_evaluations"
@@ -121,4 +137,47 @@ class AnswerEvaluation(Base):
         DateTime(timezone=True),
         default=lambda: datetime.now(timezone.utc)
     )
- 
+
+
+# =========================================================
+# INTERVIEW REPORT
+# =========================================================
+
+class InterviewReport(Base):
+    __tablename__ = "interview_reports"
+
+    id: Mapped[int] = mapped_column(
+        primary_key=True
+    )
+
+    session_id: Mapped[int] = mapped_column(
+        ForeignKey("interview_sessions.id"),
+        unique=True
+    )
+
+    average_score: Mapped[float] = mapped_column()
+
+    total_questions: Mapped[int] = mapped_column()
+
+    answered_questions: Mapped[int] = mapped_column()
+
+    overall_feedback: Mapped[str] = mapped_column(
+        Text
+    )
+
+    strengths: Mapped[str] = mapped_column(
+        Text
+    )
+
+    weaknesses: Mapped[str] = mapped_column(
+        Text
+    )
+
+    recommendations: Mapped[str] = mapped_column(
+        Text
+    )
+
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True),
+        default=lambda: datetime.now(timezone.utc)
+    )

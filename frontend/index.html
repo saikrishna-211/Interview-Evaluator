@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Interviewer — AI Interview Practice</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+<body>
+
+    <div class="page-shell">
+
+        <!-- =====================================================
+             APP CONTAINER
+        ====================================================== -->
+
+        <main class="app-container">
+
+
+            <!-- =================================================
+                 NAVBAR
+            ================================================== -->
+
+            <nav class="navbar">
+
+                <a
+                    href="#"
+                    class="brand"
+                >
+                    <span class="brand-mark">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+
+                    <span class="brand-name">
+                        Interviewer
+                    </span>
+                </a>
+
+
+                <div class="nav-links">
+
+                    <a href="#how-it-works">
+                        How it works
+                    </a>
+
+                    <a href="#setupScreen">
+                        Practice
+                    </a>
+
+                </div>
+
+
+                <button
+                    class="nav-button"
+                    id="navStartButton"
+                >
+                    Start practicing
+                </button>
+
+            </nav>
+
+
+            <!-- =================================================
+                 LANDING / SETUP SCREEN
+            ================================================== -->
+
+            <section
+                class="screen active"
+                id="setupScreen"
+            >
+
+                <!-- Decorative elements -->
+
+                <div class="floating-card floating-card-left">
+
+                    <div class="mini-icon blue-icon">
+                        ✓
+                    </div>
+
+                    <div>
+                        <strong>
+                            Ready when you are
+                        </strong>
+
+                        <span>
+                            5 adaptive questions
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="floating-card floating-card-right">
+
+                    <div class="mini-score">
+                        8.6
+                    </div>
+
+                    <div>
+                        <strong>
+                            Performance
+                        </strong>
+
+                        <span>
+                            Improve with every interview
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="hero-content">
+
+                    <p class="eyebrow">
+                        AI-POWERED INTERVIEW PRACTICE
+                    </p>
+
+
+                    <h1>
+                        Practice with purpose.<br>
+
+                        <span>
+                            Perform with confidence.
+                        </span>
+                    </h1>
+
+
+                    <p class="hero-description">
+                        Experience a realistic interview that adapts
+                        to your answers and helps you understand
+                        exactly where to improve.
+                    </p>
+
+
+                    <!-- =========================================
+                         INTERVIEW SETUP CARD
+                    ========================================== -->
+
+                    <div class="setup-card">
+
+                        <div class="setup-card-header">
+
+                            <div>
+
+                                <p class="section-label">
+                                    YOUR PRACTICE SESSION
+                                </p>
+
+                                <h2>
+                                    Set up your interview
+                                </h2>
+
+                            </div>
+
+
+                            <div class="question-preview">
+
+                                <span>
+                                    5
+                                </span>
+
+                                <small>
+                                    questions
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- ROLE -->
+
+                        <div class="form-group">
+
+                            <label for="role">
+                                Target role
+                            </label>
+
+                            <input
+                                type="text"
+                                id="role"
+                                placeholder="e.g. Frontend Developer"
+                                autocomplete="off"
+                            >
+
+                        </div>
+
+
+                        <!-- TOPIC -->
+
+                        <div class="form-group">
+
+                            <label for="topic">
+                                Interview topic
+                            </label>
+
+                            <input
+                                type="text"
+                                id="topic"
+                                placeholder="e.g. React, JavaScript, Python"
+                                autocomplete="off"
+                            >
+
+                        </div>
+
+
+                        <!-- DIFFICULTY -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Starting difficulty
+                            </label>
+
+
+                            <div
+                                class="difficulty-selector"
+                                id="difficultySelector"
+                            >
+
+                                <button
+                                    type="button"
+                                    class="difficulty-option"
+                                    data-difficulty="easy"
+                                >
+                                    Easy
+                                </button>
+
+
+                                <button
+                                    type="button"
+                                    class="difficulty-option active"
+                                    data-difficulty="medium"
+                                >
+                                    Medium
+                                </button>
+
+
+                                <button
+                                    type="button"
+                                    class="difficulty-option"
+                                    data-difficulty="hard"
+                                >
+                                    Hard
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            class="primary-button start-button"
+                            id="startInterviewButton"
+                        >
+                            <span>
+                                Start interview
+                            </span>
+
+                            <span class="button-arrow">
+                                →
+                            </span>
+                        </button>
+
+
+                        <p class="setup-note">
+                            Your questions will adapt based on
+                            your performance.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Bottom information cards -->
+
+                <div
+                    class="feature-row"
+                    id="how-it-works"
+                >
+
+                    <div class="feature-item">
+
+                        <span class="feature-number">
+                            01
+                        </span>
+
+                        <div>
+
+                            <h3>
+                                Answer naturally
+                            </h3>
+
+                            <p>
+                                Respond as you would in a real interview.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="feature-item">
+
+                        <span class="feature-number">
+                            02
+                        </span>
+
+                        <div>
+
+                            <h3>
+                                Get evaluated
+                            </h3>
+
+                            <p>
+                                Receive structured feedback on every answer.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="feature-item">
+
+                        <span class="feature-number">
+                            03
+                        </span>
+
+                        <div>
+
+                            <h3>
+                                Improve faster
+                            </h3>
+
+                            <p>
+                                Review your complete performance report.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 INTERVIEW SCREEN
+            ================================================== -->
+
+            <section
+                class="screen"
+                id="interviewScreen"
+            >
+
+                <div class="interview-header">
+
+                    <div>
+
+                        <span class="interview-label">
+                            INTERVIEW IN PROGRESS
+                        </span>
+
+                        <h2>
+                            Stay focused. Take your time.
+                        </h2>
+
+                    </div>
+
+
+                    <button
+                        class="text-button danger-text"
+                        id="abandonButton"
+                    >
+                        End interview
+                    </button>
+
+                </div>
+
+
+                <div class="progress-section">
+
+                    <div
+                        class="progress-steps"
+                        id="progressSteps"
+                    >
+                        <!-- Generated by JavaScript -->
+                    </div>
+
+
+                    <p id="questionCounter">
+                        Question 1 of 5
+                    </p>
+
+                </div>
+
+
+                <div class="question-card">
+
+                    <div class="question-meta">
+
+                        <span
+                            class="difficulty-badge medium"
+                            id="questionDifficulty"
+                        >
+                            Medium
+                        </span>
+
+                        <span
+                            class="session-status"
+                        >
+                            Adaptive interview
+                        </span>
+
+                    </div>
+
+
+                    <h1 id="questionText">
+                        Your interview question will appear here.
+                    </h1>
+
+
+                    <div class="answer-section">
+
+                        <div class="answer-label-row">
+
+                            <label for="answerInput">
+                                Your answer
+                            </label>
+
+                            <span
+                                id="characterCount"
+                            >
+                                0 / 2000
+                            </span>
+
+                        </div>
+
+
+                        <textarea
+                            id="answerInput"
+                            maxlength="2000"
+                            placeholder="Take your time and explain your thinking..."
+                        ></textarea>
+
+
+                        <div class="answer-actions">
+
+                            <button
+                                class="secondary-button"
+                                id="skipButton"
+                            >
+                                Skip question
+                            </button>
+
+
+                            <button
+                                class="primary-button"
+                                id="submitAnswerButton"
+                            >
+                                Submit answer
+                                <span>
+                                    →
+                                </span>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 EVALUATION SCREEN
+            ================================================== -->
+
+            <section
+                class="screen"
+                id="evaluationScreen"
+            >
+
+                <div class="evaluation-wrapper">
+
+                    <p class="eyebrow">
+                        ANSWER EVALUATION
+                    </p>
+
+
+                    <div class="score-section">
+
+                        <div
+                            class="score-circle"
+                            id="evaluationScore"
+                        >
+                            8.0
+                        </div>
+
+
+                        <div>
+
+                            <h1>
+                                Here's how you did
+                            </h1>
+
+                            <p>
+                                Review your feedback before moving
+                                to the next question.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="feedback-grid">
+
+                        <div class="feedback-card main-feedback">
+
+                            <span>
+                                Overall feedback
+                            </span>
+
+                            <p id="evaluationFeedback">
+                            </p>
+
+                        </div>
+
+
+                        <div class="feedback-card strengths">
+
+                            <span>
+                                Strength
+                            </span>
+
+                            <p id="evaluationStrengths">
+                            </p>
+
+                        </div>
+
+
+                        <div class="feedback-card weaknesses">
+
+                            <span>
+                                Improve
+                            </span>
+
+                            <p id="evaluationWeaknesses">
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="primary-button next-button"
+                        id="nextQuestionButton"
+                    >
+                        Next question
+                        <span>
+                            →
+                        </span>
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 REPORT SCREEN
+            ================================================== -->
+
+            <section
+                class="screen"
+                id="reportScreen"
+            >
+
+                <div class="report-wrapper">
+
+                    <p class="eyebrow">
+                        INTERVIEW COMPLETE
+                    </p>
+
+
+                    <h1>
+                        Your performance,<br>
+                        <span>in perspective.</span>
+                    </h1>
+
+
+                    <div class="report-score-card">
+
+                        <span>
+                            Average score
+                        </span>
+
+                        <strong id="averageScore">
+                            0.0
+                        </strong>
+
+                        <small>
+                            out of 10
+                        </small>
+
+                    </div>
+
+
+                    <div class="report-summary-grid">
+
+                        <div class="report-summary-card">
+
+                            <span>
+                                Overall feedback
+                            </span>
+
+                            <p id="overallFeedback"></p>
+
+                        </div>
+
+
+                        <div class="report-summary-card">
+
+                            <span>
+                                Key strengths
+                            </span>
+
+                            <p id="reportStrengths"></p>
+
+                        </div>
+
+
+                        <div class="report-summary-card">
+
+                            <span>
+                                Areas to improve
+                            </span>
+
+                            <p id="reportWeaknesses"></p>
+
+                        </div>
+
+
+                        <div class="report-summary-card">
+
+                            <span>
+                                Recommendations
+                            </span>
+
+                            <p id="reportRecommendations"></p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="question-breakdown">
+
+                        <div class="section-heading">
+
+                            <div>
+
+                                <p class="section-label">
+                                    QUESTION BREAKDOWN
+                                </p>
+
+                                <h2>
+                                    Your interview journey
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            id="reportQuestions"
+                            class="report-questions"
+                        >
+                            <!-- Generated by JavaScript -->
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="primary-button"
+                        id="newInterviewButton"
+                    >
+                        Start another interview
+                        <span>
+                            →
+                        </span>
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 LOADING OVERLAY
+            ================================================== -->
+
+            <div
+                class="loading-overlay"
+                id="loadingOverlay"
+            >
+
+                <div class="loader-content">
+
+                    <div class="loader-mark">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+
+                    <h3 id="loadingTitle">
+                        Preparing your interview
+                    </h3>
+
+
+                    <p id="loadingText">
+                        This will only take a moment.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ABANDON MODAL
+            ================================================== -->
+
+            <div
+                class="modal-overlay"
+                id="abandonModal"
+            >
+
+                <div class="modal">
+
+                    <p class="section-label">
+                        END INTERVIEW
+                    </p>
+
+                    <h2>
+                        Are you sure you want to leave?
+                    </h2>
+
+                    <p>
+                        Your current interview will be marked as
+                        abandoned and cannot be resumed.
+                    </p>
+
+
+                    <div class="modal-actions">
+
+                        <button
+                            class="secondary-button"
+                            id="cancelAbandonButton"
+                        >
+                            Keep practicing
+                        </button>
+
+
+                        <button
+                            class="danger-button"
+                            id="confirmAbandonButton"
+                        >
+                            End interview
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
