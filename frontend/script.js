@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://interview-evaluator-production-e745.up.railway.app";
+const API_BASE_URL = "https://interview-evaluator-production-acba.up.railway.app";
 const MAX_QUESTIONS = 5;
 const MAX_ANSWER_LENGTH = 2000;
 
